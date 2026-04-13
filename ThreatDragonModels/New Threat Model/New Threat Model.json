@@ -60,12 +60,17 @@
           },
           {
             "position": {
-              "x": 110,
-              "y": 595
+              "x": 18.000000000000057,
+              "y": 455
             },
             "size": {
-              "width": 128,
-              "height": 60
+              "width": 200,
+              "height": 130
+            },
+            "attrs": {
+              "label": {
+                "text": "External/Semi-trusted"
+              }
             },
             "visible": true,
             "shape": "trust-boundary-box",
@@ -73,12 +78,16 @@
             "zIndex": -1,
             "data": {
               "type": "tm.BoundaryBox",
-              "name": "Trust Boundary",
+              "name": "External/Semi-trusted",
               "description": "",
               "isTrustBoundary": true,
               "hasOpenThreats": false,
-              "crossingFlows": [],
-              "containedElements": []
+              "crossingFlows": [
+                "32f82305-9a7f-4c6e-b181-231d5520890d"
+              ],
+              "containedElements": [
+                "a0296835-16ba-480c-b4e1-efa47082a395"
+              ]
             }
           },
           {
@@ -318,7 +327,7 @@
           {
             "position": {
               "x": 30,
-              "y": 440
+              "y": 490
             },
             "size": {
               "width": 160,
@@ -449,8 +458,8 @@
                 "text": "Booking Web App"
               },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
@@ -547,12 +556,47 @@
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "f11ff797-eb0a-477d-ae0a-f2cd3b8f2cc9",
+                  "title": "Phishing attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "User tricked into revealing credentials",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "c30d7f9e-5f7e-4168-8967-6111fe38c655",
+                  "title": "Injection attack",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Tampering",
+                  "description": "Malicious input manipulates backend queries",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 1,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
             },
             "children": [
               "c32cc94b-269e-4631-b5dd-83a9a5191318"
@@ -648,52 +692,6 @@
             "target": {
               "cell": "1ba90d7c-c2c8-42e1-8025-419490fda31b",
               "port": "c267e6b1-f594-4651-a557-c7fa2cca9c44"
-            }
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
-                "stroke": "#333333",
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": ""
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Authentication",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": false,
-              "isBidirectional": false,
-              "isEncrypted": false,
-              "isPublicNetwork": false,
-              "protocol": "",
-              "threats": [],
-              "trustBoundaryIds": []
-            },
-            "labels": [
-              "Authentication"
-            ],
-            "id": "32f82305-9a7f-4c6e-b181-231d5520890d",
-            "source": {
-              "x": 190,
-              "y": 470
-            },
-            "target": {
-              "cell": "1ba90d7c-c2c8-42e1-8025-419490fda31b",
-              "port": "5189aacd-574c-43a5-9501-6789d3f959b2"
             }
           },
           {
@@ -1164,6 +1162,54 @@
             ]
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Authentication",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "trustBoundaryIds": [
+                "a6fb0214-9290-4b90-8f99-a5f2c98a4c13"
+              ]
+            },
+            "labels": [
+              "Authentication"
+            ],
+            "id": "32f82305-9a7f-4c6e-b181-231d5520890d",
+            "source": {
+              "cell": "a0296835-16ba-480c-b4e1-efa47082a395",
+              "port": "390ff347-c41c-44a2-a969-a980b7c029b5"
+            },
+            "target": {
+              "cell": "1ba90d7c-c2c8-42e1-8025-419490fda31b",
+              "port": "5189aacd-574c-43a5-9501-6789d3f959b2"
+            }
+          },
+          {
             "shape": "trust-boundary-curve",
             "width": 200,
             "height": 100,
@@ -1194,11 +1240,11 @@
             "id": "3786dc15-dfce-4eb8-a01d-18a2a1c776f1",
             "source": {
               "x": 1390,
-              "y": 170
+              "y": 40
             },
             "target": {
-              "x": 1700,
-              "y": 940
+              "x": 1710,
+              "y": 1020
             },
             "vertices": [
               {
@@ -2194,6 +2240,6 @@
     ],
     "diagramTop": 1,
     "reviewer": "Mathilde",
-    "threatTop": 0
+    "threatTop": 2
   }
 }
